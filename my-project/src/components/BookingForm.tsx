@@ -1,7 +1,6 @@
 import { SERVICES } from "../constans/index";
 import { useForm, SubmitHandler } from "react-hook-form";
-import FormBtn from "./FormBtn";
-
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 interface IFormInput {
   firstName: string;
@@ -13,21 +12,19 @@ interface IFormInput {
   time: string;
 }
 
-
 function BookingForm() {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
     handleSubmit,
+    reset,
   } = useForm<IFormInput>();
-
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     console.log("Sending data to server:", data); // Debug log
 
-
     try {
-      const response = await fetch("http://localhost:5000/send-booking", {
+      const response = await fetch("http://localhost:5000/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,13 +32,12 @@ function BookingForm() {
         body: JSON.stringify(data),
       });
 
-
       const result = await response.json();
       console.log("Server response:", result);
 
-
       if (response.ok) {
         console.log("Email sent successfully!");
+        reset();
       } else {
         console.error("Failed to send email:", result.message);
       }
@@ -49,7 +45,6 @@ function BookingForm() {
       console.error("Error sending request:", error);
     }
   };
-
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
@@ -118,7 +113,6 @@ function BookingForm() {
         </div>
       </div>
 
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label htmlFor="email" className="block text-sm font-medium">
@@ -164,7 +158,6 @@ function BookingForm() {
           )}
         </div>
       </div>
-
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -219,7 +212,6 @@ function BookingForm() {
         </div>
       </div>
 
-
       <div>
         <label htmlFor="message" className="block text-sm font-medium">
           Message
@@ -245,12 +237,24 @@ function BookingForm() {
           <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
         )}
       </div>
-
-
-      <FormBtn />
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className={`flex items-center justify-center gap-2 w-full text-center text-black text-base font-bold uppercase tracking-widest bg-secondary px-5 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
+          ${
+            isSubmitting
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:bg-yellow-300"
+          }`}
+      >
+        {isSubmitting ? (
+          <AiOutlineLoading3Quarters className="animate-spin text-2xl" />
+        ) : (
+          "Send Message"
+        )}
+      </button>
     </form>
   );
 }
-
 
 export default BookingForm;
