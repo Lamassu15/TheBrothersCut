@@ -36,7 +36,7 @@ function Header() {
               <a
                 key={index}
                 href={link.href}
-                className="hover:text-gray-400 transition-colors"
+                className="hover:text-gray-400 transition-colors text-xl"
               >
                 {link.text}
               </a>
@@ -51,7 +51,7 @@ function Header() {
               <a
                 key={index}
                 href={link.href}
-                className="hover:text-gray-400 transition-colors"
+                className="hover:text-gray-400 transition-colors text-xl"
               >
                 {link.text}
               </a>

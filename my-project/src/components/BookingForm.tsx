@@ -1,6 +1,7 @@
 import { SERVICES } from "../constans/index";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { Toaster, toast } from "sonner";
 
 interface IFormInput {
   firstName: string;
@@ -15,8 +16,9 @@ interface IFormInput {
 function BookingForm() {
   const {
     register,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
     handleSubmit,
+    setError,
     reset,
   } = useForm<IFormInput>();
 
@@ -36,20 +38,27 @@ function BookingForm() {
       console.log("Server response:", result);
 
       if (response.ok) {
-        console.log("Email sent successfully!");
-        reset();
+        toast.success("Email sent successfully! 🎉");
+        reset(); // Rensar formuläret
       } else {
-        console.error("Failed to send email:", result.message);
+        setError("root.serverError", {
+          message: result.message || "Failed to send email",
+        });
+        toast.error(`Failed to send email: ${result.message}`);
       }
     } catch (error) {
       console.error("Error sending request:", error);
+      setError("root.serverError", {
+        message: "Network error: Could not send email",
+      });
+      toast.error("Network error: Could not send email");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-6 mt-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
+        <div className="relative">
           <label htmlFor="firstName" className="block text-sm font-medium">
             First name
           </label>
@@ -71,16 +80,14 @@ function BookingForm() {
             })}
             type="text"
             id="firstName"
-            className="mt-1 block w-full px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
             placeholder="Elon"
           />
-          {errors.firstName && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.firstName.message}
-            </p>
-          )}
+          <p className="text-red-500 text-sm absolute">
+            {errors.firstName?.message}
+          </p>
         </div>
-        <div>
+        <div className="relative">
           <label htmlFor="lastName" className="block text-sm font-medium">
             Last name
           </label>
@@ -102,19 +109,16 @@ function BookingForm() {
             })}
             type="text"
             id="lastName"
-            className="mt-1 block w-full px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
             placeholder="Musk"
           />
-          {errors.lastName && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.lastName.message}
-            </p>
-          )}
+          <p className="text-red-500 text-sm absolute">
+            {errors.lastName?.message}
+          </p>
         </div>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
+        <div className="relative">
           <label htmlFor="email" className="block text-sm font-medium">
             Email
           </label>
@@ -128,21 +132,21 @@ function BookingForm() {
             })}
             type="email"
             id="email"
-            className="mt-1 block w-full px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
             placeholder="elonmusk@email.com"
           />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-          )}
+          <p className="text-red-500 text-sm absolute">
+            {errors.email?.message}
+          </p>
         </div>
-        <div>
+        <div className="relative">
           <label htmlFor="service" className="block text-sm font-medium">
             Services
           </label>
           <select
             {...register("service", { required: "Please select a service" })}
             id="service"
-            className="mt-1 block w-full px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           >
             <option value="">Choose a service</option>
             {SERVICES.map((service, index) => (
@@ -151,16 +155,13 @@ function BookingForm() {
               </option>
             ))}
           </select>
-          {errors.service && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.service.message}
-            </p>
-          )}
+          <p className="text-red-500 text-sm absolute">
+            {errors.service?.message}
+          </p>
         </div>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
+        <div className="relative">
           <label htmlFor="date" className="block text-sm font-medium">
             Date
           </label>
@@ -179,13 +180,13 @@ function BookingForm() {
             type="date"
             id="date"
             min={new Date().toISOString().split("T")[0]}
-            className="mt-1 block w-full px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           />
-          {errors.date && (
-            <p className="text-red-500 text-sm mt-1">{errors.date.message}</p>
-          )}
+          <p className="text-red-500 text-sm absolute">
+            {errors.date?.message}
+          </p>
         </div>
-        <div>
+        <div className="relative">
           <label htmlFor="time" className="block text-sm font-medium">
             Time
           </label>
@@ -204,15 +205,14 @@ function BookingForm() {
             })}
             type="time"
             id="time"
-            className="mt-1 block w-full px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           />
-          {errors.time && (
-            <p className="text-red-500 text-sm mt-1">{errors.time.message}</p>
-          )}
+          <p className="text-red-500 text-sm absolute">
+            {errors.time?.message}
+          </p>
         </div>
       </div>
-
-      <div>
+      <div className="relative">
         <label htmlFor="message" className="block text-sm font-medium">
           Message
         </label>
@@ -230,12 +230,12 @@ function BookingForm() {
           })}
           id="message"
           rows={4}
-          className="mt-1 block w-full px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+          className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           placeholder="Enter your message"
         />
-        {errors.message && (
-          <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-        )}
+        <p className="text-red-500 text-sm absolute">
+          {errors.message?.message}
+        </p>
       </div>
       <button
         type="submit"
@@ -244,15 +244,18 @@ function BookingForm() {
           ${
             isSubmitting
               ? "opacity-50 cursor-not-allowed"
-              : "hover:bg-yellow-300"
+              : "hover:bg-yellow-200 transition ease-linear"
           }`}
       >
         {isSubmitting ? (
-          <AiOutlineLoading3Quarters className="animate-spin text-2xl" />
+          <>
+            <AiOutlineLoading3Quarters className="animate-spin text-2xl" />
+          </>
         ) : (
           "Send Message"
         )}
       </button>
+      <Toaster richColors position="top-right" />
     </form>
   );
 }

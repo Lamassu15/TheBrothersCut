@@ -11,9 +11,9 @@ export const contactLinks: contactLink[] = [
   {
     id: 1,
     name: "Mail",
-    url: "mailto:thebrotherscut@exampel.com",
+    url: "mailto:thebrotherscut@gmail.com",
     icon: "CiMail",
-    txt: "thebrotherscut@exampel.com",
+    txt: "thebrotherscut@gmail.com",
     paragraph: "Our friendly team is here to help."
   },
   {
