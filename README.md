@@ -1,28 +1,47 @@
-# Brothers Barbers - Bokningssystem
+Ther Brothers Cut - Booking System
+Welcome to the Brothers Cut booking website! This site is designed to make it easy for customers to book their hair appointments and enjoy a seamless user experience.
 
-Välkommen till **Brothers Barbers** bokningshemsida! Denna hemsida är skapad för att göra det enkelt för kunder att boka sina frisörtider och få en smidig användarupplevelse.
+📋 Project Description
+This project is a responsive website built with React and Tailwind CSS. The website offers a modern and user-friendly platform for booking barber services. The site is designed to be easy to navigate, allowing customers to quickly and easily book services, view available times, and receive confirmation of their bookings.
 
-## 📋 Projektbeskrivning
-Det här projektet är en responsiv webbplats byggd med **React** och **Tailwind CSS**. Webbplatsen innehåller:
-- Möjlighet att boka tjänster, såsom klippning, skäggtrimning och färgning.
-- Visning av tillgängliga tider och tjänster.
-- Information om salongen och barberarna.
-- Enkel hantering av bokningar utan användning av externa API:er.
+The website includes:
 
-## 🚀 Funktionalitet
-### För användare:
-- Se tillgängliga tjänster och priser.
-- Boka en tjänst genom att välja datum och tid.
-- Få en bekräftelse efter bokning.
+Ability to book services such as haircuts, beard trims, and coloring.
 
-### För administratörer:
-- Möjlighet att lägga till och redigera tjänster och tider (kommer i framtida versioner).
+Display of available times and services.
 
-## 🛠️ Tekniker och verktyg
-Projektet använder följande tekniker:
-- **React**: Komponentbaserad utveckling av användargränssnitt.
-- **Tailwind CSS**: För snabb och responsiv styling.
-- **LocalStorage**: För lokal lagring av bokningsdata.
-- **Vite**: För snabbare utvecklingsmiljö.
+Information about the salon and barbers.
 
-## 📂 Struktur
+Simple booking management without the use of external APIs (for the current version).
+
+🚀 Functionality
+For Users:
+View available services and prices: Users can easily browse through different services and see their prices.
+
+Book a service: Users can select a date and time for their booking and receive immediate confirmation.
+
+Booking confirmation: After booking, users receive confirmation via email or directly on the website.
+
+For Administrators:
+Add and edit services and times: In future versions, administrators will be able to manage services and times directly through the website.
+
+Integration with a booking API: Plans are in place to integrate an external booking API for more advanced booking management.
+
+🛠️ Technologies and Tools
+The project uses the following technologies and tools to ensure a robust and efficient development process:
+
+React: Component-based user interface development for a modular and maintainable codebase.
+
+Tailwind CSS: For quick and responsive styling, making it easy to create a visually appealing interface.
+
+TypeScript: To ensure type safety and reduce bugs during development.
+
+Vite: For a faster and more efficient development environment compared to traditional bundlers.
+
+Express.js: Used for server management and integration with email services.
+
+React Email: For creating and sending email confirmations to users.
+
+Sonner: To display real-time toast notifications to the user.
+
+Resend: For managing and sending email confirmations and notifications.
