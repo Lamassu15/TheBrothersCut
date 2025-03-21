@@ -2,37 +2,40 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { Resend } from "resend";
-
+import { render } from "@react-email/render";
+import Email from "./emails/BookingEmail";
 
 dotenv.config();
-const app = express();
-app.use(cors());
-app.use(express.json());
 
+const app = express();
+app.use(express.json());
+app.use(cors());
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-
-app.post("/send-booking", async (req, res) => {
-  const { firstName, lastName, email, service, date, time, message } = req.body;
-
-
+app.post("/send-email", async (req, res) => {
   try {
-    await resend.emails.send({
-      from: "onboarding@resend.dev",
+    const { firstName, lastName, email, service, date, time, message } =
+      req.body;
+
+    const emailHtml = await render(
+      Email({ firstName, lastName, email, service, date, time, message })
+    );
+
+    const response = await resend.emails.send({
+      from: "thebrotherscut@gabara.se",
       to: email,
-      subject: `Booking Confirmation for ${service}`,
-      html: `<p>Hello ${firstName} ${lastName},</p>
-        <p>Your booking for ${service} on ${date} at ${time} is confirmed.</p>
-             <p>Message: ${message}</p>`,
+      replyTo: email,
+      // bcc: "barbers@email.com",
+      subject: "Booking Confirmation",
+      html: emailHtml,
     });
 
-
-    res.json({ success: true, message: "Email sent" });
+    res.status(200).json({ success: true, data: response });
   } catch (error) {
-    res.status(500).json({ error: "Failed to send email" });
+    console.error("Failed to send email:", error);
+    res.status(500).json({ success: false, error });
   }
 });
 
-
-app.listen(5000, () => console.log("Server running on http://localhost:5000"));
+app.listen(5000, () => console.log("Server running on port 5000"));
