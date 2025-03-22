@@ -1,4 +1,4 @@
-import LogoMain from "../assets/Logo.png";
+const LogoMain = "/logo.png";
 
 function Logo() {
   return (

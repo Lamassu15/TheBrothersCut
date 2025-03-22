@@ -16,8 +16,6 @@ export const socialLinks: SocialLink[] = [
   { id: 3, name: "Twitter", url: "https://twitter.com", icon: "FaTwitter" },
 ];
 
-
-
 // About contect
 
 export const ABOUT = [
@@ -37,8 +35,8 @@ export const ABOUT = [
 export const TEAM_PARAGRAPH = `At The Brothers Cut, we take pride in our craftsmanship and attention to detail. Our team of skilled barbers brings years of experience, creativity, and passion for men’s grooming. Whether you’re looking for a classic haircut, a modern style, or a perfectly shaped beard, our barbers are here to deliver top-notch service tailored to you.`;
 export const TEAM_H2 = `Our People Make Us Great`;
 
-import img1 from "../assets/members/Ashur.jpeg";
-import img2 from "../assets/members/Gilgamesh.jpeg";
+const img2 = "/members/Ashur.jpeg";
+const img1 = "/members/Gilgamesh.jpeg";
 
 export const MEMBERS = [
   {
@@ -103,8 +101,8 @@ export const BOOKING_STEPS = [
 
 // Contact us contect
 
-export const contactUsHeading = `Get In Touch`
-export const contactUsParagraph = `Have a question or want to book an appointment? We’re here to help! Contact us using the details below or visit our barbershop for a top-quality grooming experience.`
+export const contactUsHeading = `Get In Touch`;
+export const contactUsParagraph = `Have a question or want to book an appointment? We’re here to help! Contact us using the details below or visit our barbershop for a top-quality grooming experience.`;
 
 export const contactUsInfo = [
   {
