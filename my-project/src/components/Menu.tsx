@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Squash as Hamburger } from "hamburger-react";
+import { useState } from "react";
 
 function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,6 +6,7 @@ function Menu() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
   return (
     <>
       {/* Dropdown-meny för mindre skärmar */}
