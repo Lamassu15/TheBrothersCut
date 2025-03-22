@@ -6,6 +6,7 @@ function Menu() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
   return (
     <>
       {/* Dropdown-meny för mindre skärmar */}
