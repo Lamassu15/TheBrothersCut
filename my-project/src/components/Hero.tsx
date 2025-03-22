@@ -1,5 +1,6 @@
 import BookBtn from "./BookBtn.js";
 import SocialLinks from "./SocialLinks.js";
+const cuttingVideo = "/cut-video.mp4"
 
 function Hero() {
   return (
@@ -13,7 +14,7 @@ function Hero() {
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source
-            src="/public/4177957-hd_1920_1080_30fps.mp4"
+            src={cuttingVideo}
             type="video/mp4"
           />
         </video>

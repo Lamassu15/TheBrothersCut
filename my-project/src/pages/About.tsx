@@ -1,4 +1,6 @@
 import { ABOUT } from "../constans";
+const pic1 = "/The-best-barbers-in-Camberwell.jpg"
+const pic2 = "/toolswebp.webp"
 
 function About() {
   return (
@@ -19,14 +21,14 @@ function About() {
             <div className="w-full h-96 lg:w-1/2">
               <img
                 className="w-full h-full object-cover"
-                src="/public/The-best-barbers-in-Camberwell.jpg"
+                src={pic1}
                 alt="the barber"
               />
             </div>
             <div className="w-full h-96 lg:w-1/2">
               <img
                 className="w-full h-full object-cover"
-                src="\public\toolswebp.webp"
+                src={pic2}
                 alt="the barber"
               />
             </div>
