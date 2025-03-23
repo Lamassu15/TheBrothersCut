@@ -26,7 +26,7 @@ function BookingForm() {
     console.log("Sending data to server:", data); // Debug log
 
     try {
-      const response = await fetch("https://the-brothers-cut-backend.vercel.app/send-email", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
