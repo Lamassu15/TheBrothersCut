@@ -2,6 +2,7 @@ import { SERVICES } from "../constans/index";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Toaster, toast } from "sonner";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 interface IFormInput {
   firstName: string;
@@ -26,7 +27,7 @@ function BookingForm() {
     console.log("Sending data to server:", data); // Debug log
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/send-email`, {
+      const response = await fetch(`${backendUrl}/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
