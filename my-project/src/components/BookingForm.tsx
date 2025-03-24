@@ -150,7 +150,7 @@ function BookingForm() {
           <select
             {...register("service", { required: "Please select a service" })}
             id="service"
-            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 appearance-none block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           >
             <option value="">Choose a service</option>
             {SERVICES.map((service, index) => (
@@ -185,7 +185,7 @@ function BookingForm() {
             id="date"
             defaultValue={new Date().toISOString().split("T")[0]}
             min={new Date().toISOString().split("T")[0]}
-            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 appearance-none block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           />
           <p className="text-red-500 text-sm absolute">
             {errors.date?.message}
@@ -211,7 +211,7 @@ function BookingForm() {
             type="time"
             id="time"
             defaultValue="09:00"
-            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 appearance-none block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           />
           <p className="text-red-500 text-sm absolute">
             {errors.time?.message}
