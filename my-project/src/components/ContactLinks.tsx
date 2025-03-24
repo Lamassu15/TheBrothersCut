@@ -20,13 +20,13 @@ function ContactLinks() {
           <a className="text-4xl" href={link.url}>
             {iconMap[link.icon]}
           </a>
-          <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">
+          <h2 className="mt-4 text-lg font-medium text-fonts">
             {link.name}
           </h2>
-          <p className="mt-2 text-gray-500 dark:text-gray-400">
+          <p className="mt-2 text-gray-400 ">
             {link.paragraph}
           </p>
-          <p className="mt-2 text-blue-500 dark:text-blue-400">{link.txt}</p>
+          <p className="mt-2 text-blue-500">{link.txt}</p>
         </div>
       ))}
     </div>
