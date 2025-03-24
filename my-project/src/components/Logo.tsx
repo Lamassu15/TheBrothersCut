@@ -5,7 +5,7 @@ function Logo() {
     <div className="flex justify-start">
       <a href="index.html">
         <img
-          className="w-fit h-[120px] max-lg:h-[100px] object-fill"
+          className="w-fit h-[100px] object-contain"
           src={LogoMain}
           alt="Company Logo"
         />
