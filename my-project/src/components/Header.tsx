@@ -19,7 +19,7 @@ function Header() {
   const rightLinks = [
     { href: "#services", text: "Services" },
     { href: "#contact", text: "Contact" },
-    { href: "#booking", text: "Book now" },
+    { href: "#booking", text: "Booking" },
   ];
 
   // Navigationslänkar för mobilmenyn
@@ -63,7 +63,7 @@ function Header() {
             <Hamburger
               toggled={isMenuOpen}
               toggle={toggleMenu}
-              size={40}
+              size={30}
               color="#FFFFFF" // Vit färg på ikonen
             />
 
