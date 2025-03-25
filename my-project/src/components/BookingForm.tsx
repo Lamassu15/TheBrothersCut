@@ -84,7 +84,7 @@ function BookingForm() {
             })}
             type="text"
             id="firstName"
-            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full p-3 h-10 invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
             placeholder="Elon"
           />
           <p className="text-red-500 text-sm absolute">
@@ -113,7 +113,7 @@ function BookingForm() {
             })}
             type="text"
             id="lastName"
-            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full p-3 h-10 invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
             placeholder="Musk"
           />
           <p className="text-red-500 text-sm absolute">
@@ -136,7 +136,7 @@ function BookingForm() {
             })}
             type="email"
             id="email"
-            className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 block w-full p-3 h-10 invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
             placeholder="elonmusk@email.com"
           />
           <p className="text-red-500 text-sm absolute">
@@ -150,7 +150,7 @@ function BookingForm() {
           <select
             {...register("service", { required: "Please select a service" })}
             id="service"
-            className="mt-1 appearance-none block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+            className="mt-1 p-3 h-10 appearance-none block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           >
             <option value="">Choose a service</option>
             {SERVICES.map((service, index) => (
@@ -236,7 +236,7 @@ function BookingForm() {
           })}
           id="message"
           rows={4}
-          className="mt-1 block w-full invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
+          className="mt-1 block w-full p-3 h-10 invalid:border-pink-500 invalid:text-pink-600 focus:border-sky-500 focus:outline focus:outline-sky-500 focus:invalid:border-pink-500 focus:invalid:outline-pink-500 disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 disabled:shadow-none dark:disabled:border-gray-700 dark:disabled:bg-gray-800/20 px-3 py-2 border bg-primary border-stone-700 text-sm rounded-md focus:ring focus:ring-blue-500"
           placeholder="Enter your message"
         />
         <p className="text-red-500 text-sm absolute">
@@ -258,7 +258,7 @@ function BookingForm() {
             <AiOutlineLoading3Quarters className="animate-spin text-2xl" />
           </>
         ) : (
-          "Send Message"
+          "Send Appointment"
         )}
       </button>
       <Toaster richColors position="top-right" />
