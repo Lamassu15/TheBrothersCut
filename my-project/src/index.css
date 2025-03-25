@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 
 @layer utilities {
   .roboto-condensed-unique {
@@ -40,8 +40,16 @@ html {
 }
 
 @theme {
-  --color-primary:#222222;
-  --color-secondary:#FFD700;
-  --color-fonts:#F4F4F4;
+  --color-primary: #222222;
+  --color-secondary: #ffd700;
+  --color-fonts: #f4f4f4;
   --color-footer: #ececec;
+}
+
+/* Tar bort Safari UI-element */
+input[type="date"],
+input[type="time"],
+select {
+  -webkit-appearance: none;
+  appearance: none;
 }
