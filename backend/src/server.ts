@@ -23,7 +23,7 @@ app.post("/send-email", async (req, res) => {
     );
 
     const response = await resend.emails.send({
-      from: "thebrotherscut@gabara.se",
+      from: "info@gabara.se",
       to: email,
       replyTo: email,
       // bcc: "barbers@email.com",

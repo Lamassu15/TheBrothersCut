@@ -6,7 +6,7 @@ function ServicesCard() {
       {SERVICES.map((service, index) => (
         <div
           key={index}
-          className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-slate-700 transition delay-100 duration-300"
+          className="bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-slate-700 transition delay-100 duration-300"
         >
           <div className="text-4xl">{service.icon}</div>
           <h2 className="text-xl font-semibold mt-3">{service.name}</h2>
